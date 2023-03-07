@@ -2,8 +2,6 @@ import json
 from .models import *
 
 
-# /def cookieCart(request):
-#     return {}
 def cookieCart(request):
 
     # Create empty cart for now for non-logged in user
@@ -42,3 +40,7 @@ def cookieCart(request):
             pass
 
     return {'cartItems': cartItems, 'order': order, 'items': items}
+
+
+def cartData(request):
+    return {}
