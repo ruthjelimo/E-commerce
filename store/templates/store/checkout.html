@@ -73,24 +73,26 @@
 
 
 	<script>
+		var total = '{{order.get_cart_total}}'
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
-			style:{
-				color:'blue',
-				shape:'rect',
-			},
 
+        	style: {
+                color:  'blue',
+                shape:  'rect',
+            },
 
             // Set up the transaction
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '0.01'
+                            value:parseFloat(total).toFixed(2)
                         }
                     }]
                 });
             },
+
 
             // Finalize the transaction
             onApprove: function(data, actions) {
